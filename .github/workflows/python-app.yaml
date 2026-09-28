@@ -12,16 +12,20 @@ jobs:
 
     steps:
       - name: Checkout Code
-        users: actions/checkout@v4
+        uses: actions/checkout@v4
+
       - name: Setuppython
-        users: actions/setup-python@v4
+        uses: actions/setup-python@v4
         with:
           python-version.: "2.11"
           cache: pip
+
       - name: Install Dependencies
         run: |
           pip install -r requirements.txt
+
       - name: Limit
         run: flake8 src tests
+        
       - name: Run Tests
         run: pytestgit

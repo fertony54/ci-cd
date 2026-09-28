@@ -1,0 +1,15 @@
+name :  Python CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branchess: [mainn]
+
+jobs:
+  python-testing:
+     return-on ubuntu-latest
+
+  steps:
+    - name: Checkout Code
+      users: actions/checkout@v4

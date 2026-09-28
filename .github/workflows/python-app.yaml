@@ -26,6 +26,6 @@ jobs:
 
       - name: Limit
         run: flake8 src tests
-        
+
       - name: Run Tests
-        run: pytestgit
+        run: pytest

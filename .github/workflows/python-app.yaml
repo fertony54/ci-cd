@@ -1,11 +1,13 @@
 name: Python CI
+
 on:
-  push:
-    branches:
+ push:
+   branches:
       - main
-  pull_request:
-    branchess:
+ pull_request:
+   branches:
       - main
+
 jobs:
   python-testing:
     runs-on: ubuntu-latest
@@ -14,19 +16,18 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v4
 
-      - name: Setuppython
+      - name: Setup Python
         uses: actions/setup-python@v4
         with:
-          python-version.: "2.11"
-          cache: pip
+         python-version: "3.11"
+         cache: "pip"
 
       - name: Install Dependencies
         run: |
           pip install -r requirements.txt
 
-      - name: Limit
+      - name: Lint
         run: flake8 src tests
 
       - name: Run Tests
         run: pytest
-        
